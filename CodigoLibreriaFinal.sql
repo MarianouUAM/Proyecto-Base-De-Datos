@@ -90,27 +90,27 @@ CREATE TABLE [Tb_autores]
 (
 	[Id_autor] int NOT NULL,
 	[Nombre] varchar(50) NOT NULL,    -- Contiene el nombre de pila del autor, usado en la referencia de sus obras.
-	[Apellido] varchar(50) NOT NULL,    -- Almacena el apellido del autor para su correcta identificación.
-	[Nacionalidad] varchar(50) NOT NULL    -- Indica el país de origen del autor, útil para clasificaciones culturales o geográficas.
+	[Apellido] varchar(50) NOT NULL,    -- Almacena el apellido del autor para su correcta identificaciÃ³n.
+	[Nacionalidad] varchar(50) NOT NULL    -- Indica el paÃ­s de origen del autor, Ãºtil para clasificaciones culturales o geogrÃ¡ficas.
 )
 GO
 
 CREATE TABLE [Tb_clientes]
 (
 	[Id_cliente] int NOT NULL,
-	[Nombre] varchar(50) NOT NULL,    -- Registra el nombre propio del cliente, necesario para su identificación en reportes y facturación.
-	[Apellido] varchar(50) NOT NULL,    -- Almacena el apellido del cliente, complementando su identificación personal.
-	[Email] varchar(50) NULL,    -- Guarda la dirección de correo electrónico, útil para contacto, notificaciones y seguimiento.
-	[Fecha_registro] date NOT NULL    -- Fecha en que el cliente se registró en la base de datos, permite llevar un control histórico.
+	[Nombre] varchar(50) NOT NULL,    -- Registra el nombre propio del cliente, necesario para su identificaciÃ³n en reportes y facturaciÃ³n.
+	[Apellido] varchar(50) NOT NULL,    -- Almacena el apellido del cliente, complementando su identificaciÃ³n personal.
+	[Email] varchar(50) NULL,    -- Guarda la direcciÃ³n de correo electrÃ³nico, Ãºtil para contacto, notificaciones y seguimiento.
+	[Fecha_registro] date NOT NULL    -- Fecha en que el cliente se registrÃ³ en la base de datos, permite llevar un control histÃ³rico.
 )
 GO
 
 CREATE TABLE [Tb_detalle_venta]
 (
 	[Id_detalle] int NOT NULL,
-	[Id_venta] int NOT NULL,    -- Clave foránea que vincula el detalle con la venta correspondiente.
-	[Id_libro] int NOT NULL,    -- Clave foránea que indica el libro vendido en la transacción.
-	[Cantidad] int NOT NULL,    -- Número de ejemplares de ese libro vendidos.
+	[Id_venta] int NOT NULL,    -- Clave forÃ¡nea que vincula el detalle con la venta correspondiente.
+	[Id_libro] int NOT NULL,    -- Clave forÃ¡nea que indica el libro vendido en la transacciÃ³n.
+	[Cantidad] int NOT NULL,    -- NÃºmero de ejemplares de ese libro vendidos.
 	[Precio_unitario] decimal(18,2) NOT NULL    -- Precio de venta por unidad de libro en ese detalle.
 )
 GO
@@ -118,9 +118,9 @@ GO
 CREATE TABLE [Tb_detalles_pedidos]
 (
 	[Id_detalle_pedido] int NOT NULL,
-	[Id_pedido] int NOT NULL,    -- Clave foránea que vincula el detalle con el pedido correspondiente.
-	[Id_libro] int NOT NULL,    -- Clave foránea que indica el libro solicitado al proveedor.
-	[Cantidad] int NOT NULL,    -- Número de copias pedidas de ese libro.
+	[Id_pedido] int NOT NULL,    -- Clave forÃ¡nea que vincula el detalle con el pedido correspondiente.
+	[Id_libro] int NOT NULL,    -- Clave forÃ¡nea que indica el libro solicitado al proveedor.
+	[Cantidad] int NOT NULL,    -- NÃºmero de copias pedidas de ese libro.
 	[Costo_unitario] decimal(18,2) NOT NULL    -- Precio acordado por unidad del libro en el pedido.
 )
 GO
@@ -129,40 +129,40 @@ CREATE TABLE [Tb_editoriales]
 (
 	[Id_editorial] int NOT NULL,
 	[Nombre_editorial] varchar(100) NOT NULL,    -- Nombre completo de la editorial.
-	[Pais] varchar(50) NULL,    -- País de origen de la editorial.
-	[Telefono] varchar(15) NULL    -- Número telefónico de contacto de la editorial.
+	[Pais] varchar(50) NULL,    -- PaÃ­s de origen de la editorial.
+	[Telefono] varchar(15) NULL    -- NÃºmero telefÃ³nico de contacto de la editorial.
 )
 GO
 
 CREATE TABLE [Tb_inventario]
 (
 	[Id_inventario] int NOT NULL,
-	[Id_libro] int NOT NULL,    -- Clave foránea que indica a qué libro pertenece el stock.
-	[Cantidad_disponible] int NOT NULL,    -- Número de ejemplares disponibles en existencia.
-	[Ubicacion] varchar(50) NULL,    -- Lugar físico donde se encuentra almacenado el libro.
-	[Ultima_actualizacion] datetime NOT NULL    -- Fecha y hora de la última modificación del stock.
+	[Id_libro] int NOT NULL,    -- Clave forÃ¡nea que indica a quÃ© libro pertenece el stock.
+	[Cantidad_disponible] int NOT NULL,    -- NÃºmero de ejemplares disponibles en existencia.
+	[Ubicacion] varchar(50) NULL,    -- Lugar fÃ­sico donde se encuentra almacenado el libro.
+	[Ultima_actualizacion] datetime NOT NULL    -- Fecha y hora de la Ãºltima modificaciÃ³n del stock.
 )
 GO
 
 CREATE TABLE [Tb_libros]
 (
 	[Id_libro] int NOT NULL,
-	[Titulo] varchar(100) NOT NULL,    -- Nombre o título del libro.
-	[ISBN] varchar(13) NOT NULL,    -- Código único internacional que identifica el libro.
-	[Ano_publicacion] date NOT NULL,    -- Fecha o año en que el libro fue publicado.
-	[Precio_venta] decimal(10,2) NOT NULL,    -- Precio de venta del libro en la librería.
-	[Id_autor] int NOT NULL,    -- Clave foránea que relaciona el libro con su autor.
-	[Id_editorial] int NOT NULL    -- Clave foránea que relaciona el libro con su editorial.
+	[Titulo] varchar(100) NOT NULL,    -- Nombre o tÃ­tulo del libro.
+	[ISBN] varchar(13) NOT NULL,    -- CÃ³digo Ãºnico internacional que identifica el libro.
+	[Ano_publicacion] date NOT NULL,    -- Fecha o aÃ±o en que el libro fue publicado.
+	[Precio_venta] decimal(10,2) NOT NULL,    -- Precio de venta del libro en la librerÃ­a.
+	[Id_autor] int NOT NULL,    -- Clave forÃ¡nea que relaciona el libro con su autor.
+	[Id_editorial] int NOT NULL    -- Clave forÃ¡nea que relaciona el libro con su editorial.
 )
 GO
 
 CREATE TABLE [Tb_pedidos]
 (
 	[Id_pedido] int NOT NULL,
-	[Fecha_pedido] date NOT NULL,    -- Fecha en la que se realizó la orden de compra.
+	[Fecha_pedido] date NOT NULL,    -- Fecha en la que se realizÃ³ la orden de compra.
 	[Estado] varchar(50) NOT NULL,    -- Estado actual del pedido (Enviado, Recibido o Cancelado).
 	[Total_pedido] decimal(18,2) NOT NULL,    -- Valor total del pedido solicitado al proveedor.
-	[Id_proveedores] int NOT NULL    -- Clave foránea que indica a qué proveedor se realizó el pedido.
+	[Id_proveedores] int NOT NULL    -- Clave forÃ¡nea que indica a quÃ© proveedor se realizÃ³ el pedido.
 )
 GO
 
@@ -171,15 +171,15 @@ CREATE TABLE [Tb_proveedores]
 	[Id_proveedores] int NOT NULL,
 	[Nombre_proveedor] varchar(50) NOT NULL,    -- Nombre de la empresa o persona proveedora.
 	[Contacto_proveedor] varchar(50) NULL,    -- Persona de contacto dentro de la empresa proveedora.
-	[Telefono] varchar(15) NULL    -- Teléfono de contacto del proveedor.
+	[Telefono] varchar(15) NULL    -- TelÃ©fono de contacto del proveedor.
 )
 GO
 
 CREATE TABLE [Tb_ventas]
 (
 	[Id_venta] int NOT NULL,
-	[Id_cliente] int NOT NULL,    -- Clave foránea que indica qué cliente realizó la compra.
-	[Fecha_venta] date NOT NULL,    -- Fecha y hora exacta en la que se concretó la venta.
+	[Id_cliente] int NOT NULL,    -- Clave forÃ¡nea que indica quÃ© cliente realizÃ³ la compra.
+	[Fecha_venta] date NOT NULL,    -- Fecha y hora exacta en la que se concretÃ³ la venta.
 	[Total_venta] decimal(18,2) NOT NULL    -- Valor total de la venta incluyendo impuestos.
 )
 GO
@@ -310,218 +310,3 @@ ALTER TABLE [Tb_ventas] ADD CONSTRAINT [FK_Tb_ventas_Tb_clientes]
 	FOREIGN KEY ([Id_cliente]) REFERENCES [Tb_clientes] ([Id_cliente]) ON DELETE No Action ON UPDATE No Action
 GO
 
-/* Create Table Comments */
-
-
-GOif exists (select * from ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Tb_autores', NULL, NULL)) 
-begin 
-  EXEC sys.sp_updateextendedproperty 'MS_Description', 'La tabla Autores registra a los escritores de los libros disponibles en la librería. El campo Id_autor es la clave primaria y asegura la unicidad de cada autor. Los campos Nombre y Apellido contienen los datos personales básicos del autor, permitiendo identificarlo correctamente en relación con sus obras. Finalmente, el campo Nacionalidad opcional documenta el país de origen, lo que resulta útil para clasificar y segmentar la producción literaria según criterios culturales o de procedencia.', 'SCHEMA', 'dbo', 'table', 'Tb_autores' 
-end 
-else 
-begin 
-  EXEC sys.sp_addextendedproperty 'MS_Description', 'La tabla Autores registra a los escritores de los libros disponibles en la librería. El campo Id_autor es la clave primaria y asegura la unicidad de cada autor. Los campos Nombre y Apellido contienen los datos personales básicos del autor, permitiendo identificarlo correctamente en relación con sus obras. Finalmente, el campo Nacionalidad opcional documenta el país de origen, lo que resulta útil para clasificar y segmentar la producción literaria según criterios culturales o de procedencia.', 'SCHEMA', 'dbo', 'table', 'Tb_autores' 
-end
-
-EXEC sp_addextendedproperty 'MS_Description', 'Contiene el nombre de pila del autor, usado en la referencia de sus obras.', 'Schema', [dbo], 'table', [Tb_autores], 'column', [Nombre]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Almacena el apellido del autor para su correcta identificación.', 'Schema', [dbo], 'table', [Tb_autores], 'column', [Apellido]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Indica el país de origen del autor, útil para clasificaciones culturales o geográficas.', 'Schema', [dbo], 'table', [Tb_autores], 'column', [Nacionalidad]
-GO
-
-
-GOif exists (select * from ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Tb_clientes', NULL, NULL)) 
-begin 
-  EXEC sys.sp_updateextendedproperty 'MS_Description', 'La tabla Clientes almacena la información básica de las personas que realizan compras en la librería. Su campo Id_cliente identifica de manera única a cada cliente, funcionando como clave primaria. Los campos Nombre y Apellido guardan el nombre completo, asegurando que la información del cliente esté registrada de forma clara.', 'SCHEMA', 'dbo', 'table', 'Tb_clientes' 
-end 
-else 
-begin 
-  EXEC sys.sp_addextendedproperty 'MS_Description', 'La tabla Clientes almacena la información básica de las personas que realizan compras en la librería. Su campo Id_cliente identifica de manera única a cada cliente, funcionando como clave primaria. Los campos Nombre y Apellido guardan el nombre completo, asegurando que la información del cliente esté registrada de forma clara.', 'SCHEMA', 'dbo', 'table', 'Tb_clientes' 
-end
-
-EXEC sp_addextendedproperty 'MS_Description', 'Registra el nombre propio del cliente, necesario para su identificación en reportes y facturación.', 'Schema', [dbo], 'table', [Tb_clientes], 'column', [Nombre]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Almacena el apellido del cliente, complementando su identificación personal.', 'Schema', [dbo], 'table', [Tb_clientes], 'column', [Apellido]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Guarda la dirección de correo electrónico, útil para contacto, notificaciones y seguimiento.', 'Schema', [dbo], 'table', [Tb_clientes], 'column', [Email]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Fecha en que el cliente se registró en la base de datos, permite llevar un control histórico.', 'Schema', [dbo], 'table', [Tb_clientes], 'column', [Fecha_registro]
-GO
-
-
-GOif exists (select * from ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Tb_detalle_venta', NULL, NULL)) 
-begin 
-  EXEC sys.sp_updateextendedproperty 'MS_Description', 'La tabla Detalle_venta complementa la información de las ventas, desglosando qué libros se vendieron en cada transacción. El campo Id_detalle es la clave primaria que distingue cada línea de detalle. Id_venta enlaza el detalle con la tabla de ventas, y Id_libro conecta con el libro vendido. Cantidad indica el número de ejemplares adquiridos, mientras que Precio_unitario refleja el valor de cada libro en el momento de la compra', 'SCHEMA', 'dbo', 'table', 'Tb_detalle_venta' 
-end 
-else 
-begin 
-  EXEC sys.sp_addextendedproperty 'MS_Description', 'La tabla Detalle_venta complementa la información de las ventas, desglosando qué libros se vendieron en cada transacción. El campo Id_detalle es la clave primaria que distingue cada línea de detalle. Id_venta enlaza el detalle con la tabla de ventas, y Id_libro conecta con el libro vendido. Cantidad indica el número de ejemplares adquiridos, mientras que Precio_unitario refleja el valor de cada libro en el momento de la compra', 'SCHEMA', 'dbo', 'table', 'Tb_detalle_venta' 
-end
-
-EXEC sp_addextendedproperty 'MS_Description', 'Clave foránea que vincula el detalle con la venta correspondiente.', 'Schema', [dbo], 'table', [Tb_detalle_venta], 'column', [Id_venta]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Clave foránea que indica el libro vendido en la transacción.', 'Schema', [dbo], 'table', [Tb_detalle_venta], 'column', [Id_libro]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Número de ejemplares de ese libro vendidos.', 'Schema', [dbo], 'table', [Tb_detalle_venta], 'column', [Cantidad]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Precio de venta por unidad de libro en ese detalle.', 'Schema', [dbo], 'table', [Tb_detalle_venta], 'column', [Precio_unitario]
-GO
-
-
-GOif exists (select * from ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Tb_detalles_pedidos', NULL, NULL)) 
-begin 
-  EXEC sys.sp_updateextendedproperty 'MS_Description', 'La tabla Detalles_pedido desglosa la información de cada pedido a proveedores. El campo Id_detalle_pedido es la clave primaria de cada registro. Id_pedido enlaza con el pedido al que pertenece el detalle, y Id_libro conecta con el libro solicitado. Cantidad especifica el número de unidades pedidas, mientras que Costo_unitario refleja el precio acordado por cada ejemplar.', 'SCHEMA', 'dbo', 'table', 'Tb_detalles_pedidos' 
-end 
-else 
-begin 
-  EXEC sys.sp_addextendedproperty 'MS_Description', 'La tabla Detalles_pedido desglosa la información de cada pedido a proveedores. El campo Id_detalle_pedido es la clave primaria de cada registro. Id_pedido enlaza con el pedido al que pertenece el detalle, y Id_libro conecta con el libro solicitado. Cantidad especifica el número de unidades pedidas, mientras que Costo_unitario refleja el precio acordado por cada ejemplar.', 'SCHEMA', 'dbo', 'table', 'Tb_detalles_pedidos' 
-end
-
-EXEC sp_addextendedproperty 'MS_Description', 'Clave foránea que vincula el detalle con el pedido correspondiente.', 'Schema', [dbo], 'table', [Tb_detalles_pedidos], 'column', [Id_pedido]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Clave foránea que indica el libro solicitado al proveedor.', 'Schema', [dbo], 'table', [Tb_detalles_pedidos], 'column', [Id_libro]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Número de copias pedidas de ese libro.', 'Schema', [dbo], 'table', [Tb_detalles_pedidos], 'column', [Cantidad]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Precio acordado por unidad del libro en el pedido.', 'Schema', [dbo], 'table', [Tb_detalles_pedidos], 'column', [Costo_unitario]
-GO
-
-
-GOif exists (select * from ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Tb_editoriales', NULL, NULL)) 
-begin 
-  EXEC sys.sp_updateextendedproperty 'MS_Description', 'La tabla Editoriales gestiona las casas editoriales responsables de la publicación de los libros. El campo Id_editorial es la clave primaria que identifica de manera única cada editorial. El campo Nombre_editorial almacena el nombre completo de la empresa editora. ', 'SCHEMA', 'dbo', 'table', 'Tb_editoriales' 
-end 
-else 
-begin 
-  EXEC sys.sp_addextendedproperty 'MS_Description', 'La tabla Editoriales gestiona las casas editoriales responsables de la publicación de los libros. El campo Id_editorial es la clave primaria que identifica de manera única cada editorial. El campo Nombre_editorial almacena el nombre completo de la empresa editora. ', 'SCHEMA', 'dbo', 'table', 'Tb_editoriales' 
-end
-
-EXEC sp_addextendedproperty 'MS_Description', 'Nombre completo de la editorial.', 'Schema', [dbo], 'table', [Tb_editoriales], 'column', [Nombre_editorial]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'País de origen de la editorial.', 'Schema', [dbo], 'table', [Tb_editoriales], 'column', [Pais]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Número telefónico de contacto de la editorial.', 'Schema', [dbo], 'table', [Tb_editoriales], 'column', [Telefono]
-GO
-
-
-GOif exists (select * from ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Tb_inventario', NULL, NULL)) 
-begin 
-  EXEC sys.sp_updateextendedproperty 'MS_Description', 'La tabla Inventario permite controlar las existencias físicas de los libros en la librería. El campo Id_inventario es la clave primaria del registro. El campo Id_libro funciona como clave foránea que enlaza el inventario con el libro correspondiente. Cantidad_disponible indica el número actual de copias en stock, mientras que Ubicacion señala el espacio físico donde se encuentra almacenado el libro dentro de la librería.', 'SCHEMA', 'dbo', 'table', 'Tb_inventario' 
-end 
-else 
-begin 
-  EXEC sys.sp_addextendedproperty 'MS_Description', 'La tabla Inventario permite controlar las existencias físicas de los libros en la librería. El campo Id_inventario es la clave primaria del registro. El campo Id_libro funciona como clave foránea que enlaza el inventario con el libro correspondiente. Cantidad_disponible indica el número actual de copias en stock, mientras que Ubicacion señala el espacio físico donde se encuentra almacenado el libro dentro de la librería.', 'SCHEMA', 'dbo', 'table', 'Tb_inventario' 
-end
-
-EXEC sp_addextendedproperty 'MS_Description', 'Clave foránea que indica a qué libro pertenece el stock.', 'Schema', [dbo], 'table', [Tb_inventario], 'column', [Id_libro]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Número de ejemplares disponibles en existencia.', 'Schema', [dbo], 'table', [Tb_inventario], 'column', [Cantidad_disponible]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Lugar físico donde se encuentra almacenado el libro.', 'Schema', [dbo], 'table', [Tb_inventario], 'column', [Ubicacion]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Fecha y hora de la última modificación del stock.', 'Schema', [dbo], 'table', [Tb_inventario], 'column', [Ultima_actualizacion]
-GO
-
-
-GOif exists (select * from ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Tb_libros', NULL, NULL)) 
-begin 
-  EXEC sys.sp_updateextendedproperty 'MS_Description', 'La tabla Libros constituye el núcleo del sistema, ya que registra todos los títulos disponibles para la venta. El campo Id_libro es la clave primaria que distingue cada ejemplar. Titulo almacena el nombre del libro, mientras que ISBN guarda su código internacional único. Año_publicacion indica la fecha en que salió al mercado y Precio_venta refleja el valor económico de cada ejemplar. Los campos Id_autor e Id_editorial funcionan como claves foráneas que enlazan cada libro con su autor y editorial, asegurando la trazabilidad bibliográfica y comercial.', 'SCHEMA', 'dbo', 'table', 'Tb_libros' 
-end 
-else 
-begin 
-  EXEC sys.sp_addextendedproperty 'MS_Description', 'La tabla Libros constituye el núcleo del sistema, ya que registra todos los títulos disponibles para la venta. El campo Id_libro es la clave primaria que distingue cada ejemplar. Titulo almacena el nombre del libro, mientras que ISBN guarda su código internacional único. Año_publicacion indica la fecha en que salió al mercado y Precio_venta refleja el valor económico de cada ejemplar. Los campos Id_autor e Id_editorial funcionan como claves foráneas que enlazan cada libro con su autor y editorial, asegurando la trazabilidad bibliográfica y comercial.', 'SCHEMA', 'dbo', 'table', 'Tb_libros' 
-end
-
-EXEC sp_addextendedproperty 'MS_Description', 'Nombre o título del libro.', 'Schema', [dbo], 'table', [Tb_libros], 'column', [Titulo]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Código único internacional que identifica el libro.', 'Schema', [dbo], 'table', [Tb_libros], 'column', [ISBN]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Fecha o año en que el libro fue publicado.', 'Schema', [dbo], 'table', [Tb_libros], 'column', [Ano_publicacion]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Precio de venta del libro en la librería.', 'Schema', [dbo], 'table', [Tb_libros], 'column', [Precio_venta]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Clave foránea que relaciona el libro con su autor.', 'Schema', [dbo], 'table', [Tb_libros], 'column', [Id_autor]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Clave foránea que relaciona el libro con su editorial.', 'Schema', [dbo], 'table', [Tb_libros], 'column', [Id_editorial]
-GO
-
-
-GOif exists (select * from ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Tb_pedidos', NULL, NULL)) 
-begin 
-  EXEC sys.sp_updateextendedproperty 'MS_Description', 'La tabla Pedidos centraliza las órdenes realizadas a los proveedores. El campo Id_pedido es la clave primaria que distingue cada solicitud. Id_proveedor funciona como clave foránea, enlazando el pedido con su proveedor correspondiente. Fecha_pedido indica cuándo se emitió la orden, mientras que Estado refleja el avance del pedido (enviado, recibido o cancelado).', 'SCHEMA', 'dbo', 'table', 'Tb_pedidos' 
-end 
-else 
-begin 
-  EXEC sys.sp_addextendedproperty 'MS_Description', 'La tabla Pedidos centraliza las órdenes realizadas a los proveedores. El campo Id_pedido es la clave primaria que distingue cada solicitud. Id_proveedor funciona como clave foránea, enlazando el pedido con su proveedor correspondiente. Fecha_pedido indica cuándo se emitió la orden, mientras que Estado refleja el avance del pedido (enviado, recibido o cancelado).', 'SCHEMA', 'dbo', 'table', 'Tb_pedidos' 
-end
-
-EXEC sp_addextendedproperty 'MS_Description', 'Fecha en la que se realizó la orden de compra.', 'Schema', [dbo], 'table', [Tb_pedidos], 'column', [Fecha_pedido]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Estado actual del pedido (Enviado, Recibido o Cancelado).', 'Schema', [dbo], 'table', [Tb_pedidos], 'column', [Estado]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Valor total del pedido solicitado al proveedor.', 'Schema', [dbo], 'table', [Tb_pedidos], 'column', [Total_pedido]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Clave foránea que indica a qué proveedor se realizó el pedido.', 'Schema', [dbo], 'table', [Tb_pedidos], 'column', [Id_proveedores]
-GO
-
-
-GOif exists (select * from ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Tb_proveedores', NULL, NULL)) 
-begin 
-  EXEC sys.sp_updateextendedproperty 'MS_Description', 'La tabla Proveedores gestiona la información de las empresas o personas que abastecen a la librería. El campo Id_proveedor es la clave primaria que los identifica de manera única. Nombre_proveedor almacena la denominación comercial, mientras que Contacto_proveedor permite registrar la persona encargada de la relación directa.', 'SCHEMA', 'dbo', 'table', 'Tb_proveedores' 
-end 
-else 
-begin 
-  EXEC sys.sp_addextendedproperty 'MS_Description', 'La tabla Proveedores gestiona la información de las empresas o personas que abastecen a la librería. El campo Id_proveedor es la clave primaria que los identifica de manera única. Nombre_proveedor almacena la denominación comercial, mientras que Contacto_proveedor permite registrar la persona encargada de la relación directa.', 'SCHEMA', 'dbo', 'table', 'Tb_proveedores' 
-end
-
-EXEC sp_addextendedproperty 'MS_Description', 'Nombre de la empresa o persona proveedora.', 'Schema', [dbo], 'table', [Tb_proveedores], 'column', [Nombre_proveedor]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Persona de contacto dentro de la empresa proveedora.', 'Schema', [dbo], 'table', [Tb_proveedores], 'column', [Contacto_proveedor]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Teléfono de contacto del proveedor.', 'Schema', [dbo], 'table', [Tb_proveedores], 'column', [Telefono]
-GO
-
-
-GOif exists (select * from ::fn_listextendedproperty ('MS_Description', 'SCHEMA', 'dbo', 'table', 'Tb_ventas', NULL, NULL)) 
-begin 
-  EXEC sys.sp_updateextendedproperty 'MS_Description', 'La tabla Ventas almacena todas las transacciones realizadas en la librería. El campo Id_venta es la clave primaria que identifica cada operación de venta. Id_cliente actúa como clave foránea que vincula la venta con el cliente que la efectuó. Fecha_venta registra el momento exacto de la transacción, mientras que Total_venta refleja el importe total facturado', 'SCHEMA', 'dbo', 'table', 'Tb_ventas' 
-end 
-else 
-begin 
-  EXEC sys.sp_addextendedproperty 'MS_Description', 'La tabla Ventas almacena todas las transacciones realizadas en la librería. El campo Id_venta es la clave primaria que identifica cada operación de venta. Id_cliente actúa como clave foránea que vincula la venta con el cliente que la efectuó. Fecha_venta registra el momento exacto de la transacción, mientras que Total_venta refleja el importe total facturado', 'SCHEMA', 'dbo', 'table', 'Tb_ventas' 
-end
-
-EXEC sp_addextendedproperty 'MS_Description', 'Clave foránea que indica qué cliente realizó la compra.', 'Schema', [dbo], 'table', [Tb_ventas], 'column', [Id_cliente]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Fecha y hora exacta en la que se concretó la venta.', 'Schema', [dbo], 'table', [Tb_ventas], 'column', [Fecha_venta]
-GO
-
-EXEC sp_addextendedproperty 'MS_Description', 'Valor total de la venta incluyendo impuestos.', 'Schema', [dbo], 'table', [Tb_ventas], 'column', [Total_venta]
-GO
