@@ -298,15 +298,20 @@ ALTER TABLE [Tb_libros] ADD CONSTRAINT [FK_Tb_libros_Tb_autores]
 	FOREIGN KEY ([Id_autor]) REFERENCES  () ON DELETE No Action ON UPDATE No Action
 GO
 
-ALTER TABLE [Tb_libros] ADD CONSTRAINT [FK_Tb_libros_Tb_editoriales]
-	FOREIGN KEY ([Id_editorial]) REFERENCES  () ON DELETE No Action ON UPDATE No Action
+ALTER TABLE [Tb_libros] ADD CONSTRAINT [FK_Tb_libros_Tb_autores]
+    FOREIGN KEY ([Id_autor])
+    REFERENCES [Tb_autores]([Id_autor])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
-ALTER TABLE [Tb_pedidos] ADD CONSTRAINT [FK_Tb_pedidos_Tb_proveedores]
-	FOREIGN KEY ([Id_proveedores]) REFERENCES [Tb_proveedores] ([Id_proveedores]) ON DELETE No Action ON UPDATE No Action
+ALTER TABLE [Tb_libros] ADD CONSTRAINT [FK_Tb_libros_Tb_editoriales]
+    FOREIGN KEY ([Id_editorial])
+    REFERENCES [Tb_editoriales]([Id_editorial])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
 GO
 
 ALTER TABLE [Tb_ventas] ADD CONSTRAINT [FK_Tb_ventas_Tb_clientes]
 	FOREIGN KEY ([Id_cliente]) REFERENCES [Tb_clientes] ([Id_cliente]) ON DELETE No Action ON UPDATE No Action
 GO
+
 
